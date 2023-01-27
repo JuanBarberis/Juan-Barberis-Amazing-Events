@@ -23,6 +23,9 @@ main{
     width: 100%;
     height: 20vh ;
 }
+body{
+    background-color: rgba(245, 195, 95, 0.74);
+}
 
 .tarjet{
     width: 80%;
