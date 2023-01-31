@@ -26,6 +26,25 @@ main{
 body{
     background-color: rgba(245, 195, 95, 0.74);
 }
+.filter{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.check{
+    display: flex;
+    justify-content:center ;
+}
+
+@media only scrren and (max-width:310px){
+    .check{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+}
+}
 
 .tarjet{
     width: 80%;
