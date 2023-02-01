@@ -187,11 +187,12 @@ const data = {
     ]
   }
 
-let upcomingevents = data.events.filter( (tarjetFuture) => tarjetFuture.date > data.currentDate)
-let eventFuture = document.querySelector(".tarjet");
-for (let item of upcomingevents){
-    eventFuture.innerHTML += `
-            <div class="card text-center m-3" style="width: 18rem;">
+const upCominEvent = document.querySelector(".tarjet")
+
+for(let item of data.events){
+  if (data.currentDate < item.date){
+    upCominEvent.innerHTML += `
+    <div class="card text-center m-3" style="width: 18rem;">
                 <img src=${item.image} class="card-img-top" alt="costume_party">
                     <div class="card-body">
                         <h5 class="card-title">${item.name}</h5>
@@ -201,5 +202,7 @@ for (let item of upcomingevents){
                             <a href="./assets/description.html" class="btn btn-outline-danger">Description</a>
                         </div>
                     </div>
-            </div> `
+            </div>
+  `
+  }
 }
