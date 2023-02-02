@@ -199,7 +199,7 @@ for(let item of data.events){
                         <p class="card-text">${item.category}</p>
                         <div class="price-descption">
                             <p class="card-text ms-2">Prices:${item.price}</p>
-                            <a href="./assets/description.html" class="btn btn-outline-danger">Description</a>
+                            <a href="./description.html" class="btn btn-outline-danger">Description</a>
                         </div>
                     </div>
             </div>
