@@ -26,6 +26,24 @@ main{
 body{
     background-color: rgba(245, 195, 95, 0.74);
 }
+#carouselExample {
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.26);
+    height: 20%;
+    width: 50%;
+    margin-bottom: 30px;
+
+}
+.carousel-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.parrafo-index {
+    font-size: xx-large;
+}
+
 .search-filt{
     min-width: 70%;
     display: flex;
@@ -47,6 +65,11 @@ body{
     }
     .form{
         flex-direction: column;
+        margin-bottom: 10px;
+
+    }
+    #carouselExample {
+        width: 70%;
     }
 }
 
