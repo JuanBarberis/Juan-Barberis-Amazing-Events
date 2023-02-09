@@ -51,10 +51,10 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.form{
+#checkCategory{
     display: flex;
 }
-.form label{
+#checkCategory label{
     margin-right: 10px;
 }
 @media (min-width:320px) and (max-width:1000px){
@@ -63,7 +63,7 @@ body{
     flex-direction:column;
     margin-bottom: 5px;
     }
-    .form{
+    #checkCategory{
         flex-direction: column;
         margin-bottom: 10px;
 
@@ -133,17 +133,21 @@ margin: auto;
     align-items: center;
     margin-bottom: 10px;
 }
-.description{
+#description{
     display: flex;
     flex-direction:row-reverse;
     justify-content: center;
 }
 @media only screen and ( max-width: 380px){
-    .description{
+    #description{
         flex-direction: column-reverse;
         align-items: center;
         margin-bottom: 20px;
-}
+    }   
+    .card{
+        height: 70%;
+        font-size: small;
+    }
 }
 .card-descrip{
     
@@ -155,7 +159,11 @@ margin: auto;
 }
 .card{
     border: none;
-    margin: 10px;
+    margin: 20px;
     box-shadow:  20px 20px 10px grey ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: larger;
 
 }
