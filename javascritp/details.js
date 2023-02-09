@@ -14,7 +14,7 @@ container.innerHTML = `
 <p class="card-text">date: ${eventDescription.date}</p>
 <p class="card-text">capacity: ${eventDescription.capacity}</p>
 <p class="card-text">place: ${eventDescription.place}</p>
-<p class="card-text">price: ${eventDescription.price}</p>
+<p class="card-text">price: $${eventDescription.price}</p>
 </div>
 </div>
 <div class="card" style="width: 75%;" >

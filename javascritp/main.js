@@ -32,7 +32,7 @@ function insertEvents(eventsArray) {
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">${item.category}</p>
                         <div class="price-descption">
-                            <p class="card-text ms-2">Prices:${item.price}</p>
+                            <p class="card-text ms-2">Prices: $${item.price}</p>
                             <a href="./assets/description.html?event=${item._id}" class="btn btn-outline-danger">Description</a>
                         </div>
                     </div>
