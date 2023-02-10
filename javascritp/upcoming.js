@@ -60,7 +60,7 @@ function filterEvents() {
       }
     })
    
-    
+ 
     
     upCominEvent.innerHTML = ""
     insertEvents(results)
@@ -69,7 +69,7 @@ function filterEvents() {
 
     let newEventsArray = []
 
-    
+   
 
     for (let selectedCategory of selectedCategories) {
       for (let event of eventsData) {
@@ -87,7 +87,8 @@ function filterEvents() {
       }
     })
     
-    
+   
+
     upCominEvent.innerHTML = ""
     insertEvents(results)
   }
