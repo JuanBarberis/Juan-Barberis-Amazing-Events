@@ -3,6 +3,7 @@ const homeTarjet = document.querySelector(".tarjet")
 const eventsData = data.events
 const cardCategory = data.events.map(item => item.category)
 const categorySinRept = new Set(cardCategory);
+const categoryArray =  [...categorySinRept]
 const inputSearch = document.getElementById("search")
 const categorys = document.getElementById("checkCategory")
 const button = document.getElementById("button")
@@ -12,7 +13,7 @@ let filters = {
     categories: new Set
 }
 
-for (let category of categorySinRept) {
+for (let category of categoryArray) {
     categorys.innerHTML += `
         <div>
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${category}" name="categoryName"/>
