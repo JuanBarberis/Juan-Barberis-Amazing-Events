@@ -60,7 +60,8 @@ function filterEvents() {
       }
     })
    
-    // eliminado los registros renderizados
+    
+    
     upCominEvent.innerHTML = ""
     insertEvents(results)
 
@@ -68,7 +69,7 @@ function filterEvents() {
 
     let newEventsArray = []
 
-    // recorremos por c/categoria todos los eventos y comparamos la categoria del evento con las  categorias .
+    
 
     for (let selectedCategory of selectedCategories) {
       for (let event of eventsData) {
@@ -85,7 +86,8 @@ function filterEvents() {
         return false
       }
     })
-    // volvemos a eliminar los registros renderizados
+    
+    
     upCominEvent.innerHTML = ""
     insertEvents(results)
   }
