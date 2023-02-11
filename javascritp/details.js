@@ -4,7 +4,7 @@ const id = params.get( "event" )
 const eventDescription = eventsData.find(event => event._id === id)
 const container = document.getElementById(`description`)
 
-
+function renderCard(Description ,contain){
 container.innerHTML = `
 <div class="card" style="width: 75%">
 <div class="card-descrip">
@@ -20,6 +20,7 @@ container.innerHTML = `
 <div class="card" style="width: 75%;" >
 <img src="${eventDescription.image}" class="card-img-top" alt="special-events" style="width: 100%; height: 100%;">
 </div>
-`
+`}
 
+renderCard(eventDescription,container)
 

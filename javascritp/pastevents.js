@@ -1,9 +1,9 @@
 
-const pastEvents = document.querySelector(".tarjet")
+const element = document.querySelector(".tarjet")
 const eventsData = data.events.filter(item => data.currentDate > item.date)
 const cardCategory = data.events.map(item => item.category)
 const categorySinRept = new Set(cardCategory);
-const categoryArray =  [...categorySinRept]
+const categoryArray = [...categorySinRept]
 const categorys = document.getElementById("checkCategory")
 const button = document.getElementById("button")
 const inputSearch = document.getElementById("search")
@@ -13,22 +13,24 @@ let filters = {
   categories: new Set
 }
 
-//insert checkboxs
 
-for(let category of categoryArray){
-categorys.innerHTML +=`
+
+// FUNCIONES
+
+function filterCheck(categoryArray, inner) {
+  for (let category of categoryArray) {
+    inner.innerHTML += `
 <div>
 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${category}" name="categoryName"/>
 <label class="form-check-label" for="inlineCheckbox1">${category}</label>
 </div>
-`
+`}
 }
+filterCheck(categoryArray, categorys)
 
-// FUNCIONES
-
-function insertEvents(eventsArray){
-  for(let item of eventsArray){
-    pastEvents.innerHTML += `
+function insertEvents(eventsArray) {
+  for (let item of eventsArray) {
+    element.innerHTML += `
     <div class="card text-center m-3" style="width: 18rem;">
                 <img src=${item.image} class="card-img-top" alt="costume_party">
                     <div class="card-body">
@@ -46,65 +48,67 @@ function insertEvents(eventsArray){
 
 insertEvents(eventsData)
 
-function filterEvents(){
+function filterEvents(categories, searchText, data, prueba) {
 
-  let selectedCategories = [...filters.categories]
-  let condition = filters.searchText.toLowerCase()
+  let selectedCategories = [...categories]
+  let condition = searchText.toLowerCase()
 
-  if(selectedCategories.length === 0){
-    const results = eventsData.filter(event =>{
+  if (selectedCategories.length === 0) {
+    const results = data.filter(event => {
       const name = event.name.toLowerCase()
-      if(name.indexOf(condition) !==-1){
+      if (name.indexOf(condition) !== -1) {
         return true
-      }else {
+      } else {
         return false
       }
     })
-    pastEvents.innerHTML = ""
+    prueba.innerHTML = ""
     insertEvents(results)
-  
-  } else { 
+
+  } else {
     let newEventsArray = []
 
-    for(let selectedCategory of selectedCategories){
-      for(let event of eventsData){
-        if(selectedCategory === event.category){
+    for (let selectedCategory of selectedCategories) {
+      for (let event of eventsData) {
+        if (selectedCategory === event.category) {
           newEventsArray.push(event)
         }
       }
     }
-    const results = newEventsArray.filter(event =>{
-      const name= event.name.toLowerCase()
-      if(name.indexOf(condition) !== -1 ){
+    const results = newEventsArray.filter(event => {
+      const name = event.name.toLowerCase()
+      if (name.indexOf(condition) !== -1) {
         return true
-      }else {
+      } else {
         return false
       }
     })
-    pastEvents.innerHTML = ""
+    prueba.innerHTML = ""
     insertEvents(results)
   }
 }
+filterEvents(filters.categories, filters.searchText, eventsData, element)
 
 //LISTENERS
 
-document.querySelectorAll(`.form-check-input`).forEach(checkbox =>{
+document.querySelectorAll(`.form-check-input`).forEach(checkbox => {
   checkbox.addEventListener(`change`, event => {
-    if(checkbox.checked === true){
+    if (checkbox.checked === true) {
       filters.categories.add(event.target.value)
-    }else {
+
+    } else {
       filters.categories.delete(event.target.value)
     }
-    filterEvents()
+    filterEvents(filters.categories, filters.searchText, eventsData, element)
   })
 })
 
-inputSearch.addEventListener(`keyup`, event =>{
+inputSearch.addEventListener(`keyup`, event => {
   filters.searchText = event.target.value
-  filterEvents()
+  filterEvents(filters.categories, filters.searchText, eventsData, element)
 });
 
 const filterButton = (e) => {
   filters.searchText = inputSearch.value
-  filterEvents()
+  filterEvents(filters.categories, filters.searchText, eventsData, element)
 }

@@ -1,5 +1,5 @@
 
-const upCominEvent = document.querySelector(".tarjet")
+const element = document.querySelector(".tarjet")
 const eventsData = data.events.filter(item => data.currentDate < item.date)
 const cardCategory = data.events.map(item => item.category)
 const categorySinRept = new Set(cardCategory);
@@ -13,22 +13,23 @@ let filters = {
   categories: new Set
 }
 
-//insert checkboxs
+//FUNCIONES
 
-for (let category of categoryArray) {
-  categorys.innerHTML += `
+function filterCheck(categoryArray, inner) {
+  for (let category of categoryArray) {
+    inner.innerHTML += `
       <div>
           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${category}" name="categoryName"/>
           <label class="form-check-label" for="inlineCheckbox1">${category}</label>
       </div>
   `
+  }
 }
-
-//FUNCIONES
+filterCheck(categoryArray, categorys)
 
 function insertEvents(eventsArray) {
   for (let item of eventsArray) {
-    upCominEvent.innerHTML += `
+    element.innerHTML += `
     <div class="card text-center m-3" style="width: 18rem;">
                 <img src=${item.image} class="card-img-top" alt="costume_party">
                     <div class="card-body">
@@ -45,13 +46,13 @@ function insertEvents(eventsArray) {
 }
 insertEvents(eventsData)
 
-function filterEvents() {
+function filterEvents(categories, searchText, data, prueba) {
 
-  let selectedCategories = [...filters.categories]
-  let condition = filters.searchText.toLowerCase()
+  let selectedCategories = [...categories]
+  let condition = searchText.toLowerCase()
 
   if (selectedCategories.length === 0) {
-    const results = eventsData.filter(event => {
+    const results = data.filter(event => {
       const name = event.name.toLowerCase()
       if (name.indexOf(condition) !== -1) {
         return true
@@ -59,20 +60,20 @@ function filterEvents() {
         return false
       }
     })
-   
- 
-    
-    upCominEvent.innerHTML = ""
+
+
+
+    prueba.innerHTML = ""
     insertEvents(results)
 
   } else {
 
     let newEventsArray = []
 
-   
+
 
     for (let selectedCategory of selectedCategories) {
-      for (let event of eventsData) {
+      for (let event of data) {
         if (selectedCategory === event.category) {
           newEventsArray.push(event)
         }
@@ -86,18 +87,19 @@ function filterEvents() {
         return false
       }
     })
-    
-   
 
-    upCominEvent.innerHTML = ""
+
+
+    prueba.innerHTML = ""
     insertEvents(results)
   }
 }
+filterEvents(filters.categories, filters.searchText, eventsData, element)
 
 function filterButton(e) {
   e.preventDefault();
   filters.searchText = inputSearch.value
-  filterEvents()
+  filterEvents(filters.categories, filters.searchText, eventsData, element)
 }
 //LISTENERS
 
@@ -108,15 +110,13 @@ document.querySelectorAll(`.form-check-input`).forEach(checkbox => {
     } else {
       filters.categories.delete(event.target.value);
     }
-    filterEvents()
+    filterEvents(filters.categories, filters.searchText, eventsData, element)
   });
 });
 
 inputSearch.addEventListener(`keyup`, event => {
   filters.searchText = event.target.value
-  filterEvents()
+  filterEvents(filters.categories, filters.searchText, eventsData, element)
 });
-
-
 
 button.addEventListener(`click`, filterButton)
