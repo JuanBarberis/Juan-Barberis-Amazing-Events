@@ -46,7 +46,7 @@ function insertEvents(eventsArray) {
 }
 insertEvents(eventsData)
 
-function filterEvents(categories, searchText, data, prueba) {
+function filterEvents(categories, searchText, data, card) {
 
   let selectedCategories = [...categories]
   let condition = searchText.toLowerCase()
@@ -60,17 +60,16 @@ function filterEvents(categories, searchText, data, prueba) {
         return false
       }
     })
+    card.innerHTML = ""
+    if (results.length === 0) {
+        insertNotResult(card)
+    } else {
 
-
-
-    prueba.innerHTML = ""
-    insertEvents(results)
-
+        insertEvents(results)
+    }
   } else {
 
     let newEventsArray = []
-
-
 
     for (let selectedCategory of selectedCategories) {
       for (let event of data) {
@@ -87,15 +86,22 @@ function filterEvents(categories, searchText, data, prueba) {
         return false
       }
     })
+    card.innerHTML = ""
+    if (results.length === 0) {
+        insertNotResult(card)
+    } else {
 
-
-
-    prueba.innerHTML = ""
-    insertEvents(results)
+        insertEvents(results)
+    }
   }
 }
 filterEvents(filters.categories, filters.searchText, eventsData, element)
 
+function insertNotResult(element) {
+  element.innerHTML += `
+  <p>Not results Found </p>
+  `
+}
 function filterButton(e) {
   e.preventDefault();
   filters.searchText = inputSearch.value

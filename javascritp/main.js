@@ -47,7 +47,7 @@ function insertEvents(eventsArray) {
 insertEvents(eventsData)
 
 
-function filterEvents(categories, searchText, data, prueba) {
+function filterEvents(categories, searchText, data, card) {
 
 
     let selectedCategories = [...categories]
@@ -63,9 +63,13 @@ function filterEvents(categories, searchText, data, prueba) {
                 return false
             }
         })
+        card.innerHTML = ""
+        if (results.length === 0) {
+            insertNotResult(card)
+        } else {
 
-        prueba.innerHTML = ""
-        insertEvents(results)
+            insertEvents(results)
+        }
 
     } else {
 
@@ -89,12 +93,22 @@ function filterEvents(categories, searchText, data, prueba) {
             }
         })
 
-        prueba.innerHTML = ""
-        insertEvents(results)
+        card.innerHTML = ""
+        if (results.length === 0) {
+            insertNotResult(card)
+        } else {
+            insertEvents(results)
+        }
     }
     
 }
 filterEvents(filters.categories, filters.searchText, eventsData, element)
+function insertNotResult(element) {
+    element.innerHTML += `
+    <p>Not results Found </p>
+    `
+}
+
 //Listeners
 
 document.querySelectorAll('.form-check-input').forEach(checkbox => {
