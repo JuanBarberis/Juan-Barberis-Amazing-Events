@@ -3,8 +3,8 @@ export function filterCheck(categoryArray, inner) {
   for (let category of categoryArray) {
     inner.innerHTML += `
         <div>
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${category}" name="categoryName"/>
-            <label class="form-check-label" for="inlineCheckbox1">${category}</label>
+            <input class="form-check-input" type="checkbox" id="${category}" value="${category}" name="categoryName"/>
+            <label class="form-check-label" for="${category}">${category}</label>
         </div>
     `
   }
