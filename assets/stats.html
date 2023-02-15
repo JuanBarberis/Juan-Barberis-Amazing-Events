@@ -35,33 +35,33 @@
     </nav>
   </header>
   <main class="stats">
-          <div id="carouselExample" class="carousel slide">
-              <div class="carousel-inner">
-                  <div class="carousel-item ">
-                      <p class="parrafo-index">Home</p>
-                  </div>
-                  <div class="carousel-item">
-                      <p class="parrafo-index">Upcoming events</p>
-                  </div>
-                  <div class="carousel-item ">
-                      <p class="parrafo-index">Past events</p>
-                  </div>
-                  <div class="carousel-item">
-                      <p class="parrafo-index">Contact</p>
-                  </div>
-                  <div class="carousel-item active">
-                      <p class="parrafo-index">Stats</p>
-                  </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
-          </div>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item ">
+          <p class="parrafo-index">Home</p>
+        </div>
+        <div class="carousel-item">
+          <p class="parrafo-index">Upcoming events</p>
+        </div>
+        <div class="carousel-item ">
+          <p class="parrafo-index">Past events</p>
+        </div>
+        <div class="carousel-item">
+          <p class="parrafo-index">Contact</p>
+        </div>
+        <div class="carousel-item active">
+          <p class="parrafo-index">Stats</p>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
     <h1>Stats</h1>
     <div>
       <table class="table">
@@ -70,73 +70,31 @@
             <th colspan="3">Events Statistics</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableEvents">
           <tr>
             <td>Events with the highest percentage of attendance</td>
             <td>Events with the lowest percentage of attendance</td>
             <td>Event with larger capacity</td>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+        </tbody>
+
+        <thead>
           <tr>
             <th colspan="3">Upcoming events statistics by category</th>
           </tr>
-          <tr>
-            <td>Categories</td>
-            <td>Revenues</td>
-            <td>Porcentage of attendance</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+        </thead>
+        <tbody id="upcomingtable">
+
+        </tbody>
+
+        <thead>
           <tr>
             <th colspan="3">Past events statistics by category</th>
           </tr>
-          <tr>
-            <td>Categories</td>
-            <td>Revenues</td>
-            <td>Porcentage of attendance</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+        </thead>
+
+        <tbody id="pasttable">
+
         </tbody>
       </table>
     </div>
@@ -161,6 +119,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+  <script type="module" src="../javascritp/stats.js"></script>
 </body>
 
 </html>

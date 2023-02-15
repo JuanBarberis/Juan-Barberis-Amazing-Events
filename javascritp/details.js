@@ -1,11 +1,18 @@
-import {renderCard} from "./module/function.js"
+import { renderCard } from "./module/function.js"
 
-const eventsData = data.events
-const params = new URLSearchParams(location.search)
-const id = params.get( "event" )
-const eventDescription = eventsData.find(event => event._id === id)
+const api = (`https://mindhub-xj03.onrender.com/api/amazing`)
 const container = document.getElementById(`description`)
 
 
-renderCard(eventDescription,container)
 
+fetch(api)
+    .then(response => response.json())
+    .then(data => {
+        let eventsData = data.events
+        const params = new URLSearchParams(location.search)
+        const id = params.get("event")
+        const eventDescription = eventsData.find(event => event._id == id)
+        renderCard(eventDescription, container)
+
+    })
+    .catch(error => console.log(error))
