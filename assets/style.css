@@ -117,6 +117,9 @@ footer{
 h2{
    padding-right:  20px;
 }
+.copyright{
+    font-size: medium;
+}
 tbody,th,tr,td {
     border: 2px solid orange;
 }
